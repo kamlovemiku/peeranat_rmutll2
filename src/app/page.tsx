@@ -5,6 +5,15 @@ interface LessonItem {
 }
 
 export default function HomePage() {
+  const courseInfo = {
+    code: "BSCCT604",
+    nameEn: "Computer Network Administration",
+    credits: "3(2-2-5)",
+    prerequisite: "BSCCT603 การสื่อสารข้อมูลและระบบเครือข่ายคอมพิวเตอร์",
+    descriptionTh: "ศึกษาและฝึกปฏิบัติเกี่ยวกับการติดตั้งและกำหนดค่าทางเครือข่ายคอมพิวเตอร์ในรูปแบบต่าง ๆ การค้นหาเส้นทาง การจัดสรรหมายเลขไอพีแบบคงที่และแบบพลวัต ระบบเครือข่ายคอมพิวเตอร์ไร้สาย ระบบความปลอดภัยในเครือข่ายคอมพิวเตอร์ การออกแบบช่องทางการสื่อสารชนิดส่วนบุคคล และการประยุกต์ใช้ระบบเครือข่ายคอมพิวเตอร์กับองค์กรแบบต่าง ๆ",
+    descriptionEn: "Study and practice in installation and setup of computer network with various applications, routing, assignment of static and dynamic IP addresses, wireless network system, computer network security, virtual private network design, and application of computer network in various types of organization."
+  };
+
   const lessons: LessonItem[] = [
     { id: 1, title: "พื้นฐานและการติดตั้งเครือข่าย", description: "เข้าใจโครงสร้างและหลักการทำงานของเครือข่ายคอมพิวเตอร์" },
     { id: 2, title: "การบริหารจัดการ IP Address", description: "เรียนรู้การกำหนด IP แบบ Static และ Dynamic" },
@@ -27,6 +36,41 @@ export default function HomePage() {
           <div className="flex gap-3 items-center">
             <a href="#lessons" className="btn-primary">เริ่มเรียน</a>
             <a href="/about" className="text-sm text-gray-600 hover:text-gray-800">เกี่ยวกับคอร์ส</a>
+          </div>
+        </div>
+
+        {/* Course Information Section */}
+        <div className="card mb-10 p-8 rounded-2xl border-l-4 border-blue-500">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-4 text-blue-900">รหัสวิชา {courseInfo.code}</h2>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <span className="font-semibold text-gray-700">ชื่อวิชา (EN):</span>
+                  <p className="text-gray-600">{courseInfo.nameEn}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">หน่วยกิต:</span>
+                  <p className="text-gray-600">{courseInfo.credits}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">วิชาบังคับก่อน:</span>
+                  <p className="text-gray-600">{courseInfo.prerequisite}</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-blue-900 mb-3">คำอธิบายรายวิชา</h3>
+              <div className="space-y-4 text-sm leading-relaxed">
+                <div>
+                  <p className="text-gray-700">{courseInfo.descriptionTh}</p>
+                </div>
+                <div className="pt-2 border-t border-gray-200">
+                  <p className="text-gray-600 italic">{courseInfo.descriptionEn}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

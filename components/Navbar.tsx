@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <h1 className="text-lg md:text-xl font-semibold brand">BSCCT604 การบริหารเครือข่ายคอมพิวเตอร์</h1>
 
-        <div className="hidden md:flex items-center gap-4">
+        {/* <div className="hidden md:flex items-center gap-4">
           <div className="relative">
             <button
               onClick={() => setOpen(!open)}
@@ -41,12 +41,12 @@ export default function Navbar() {
           </div>
 
          
-        </div>
+        </div> */}
 
         
       </div>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu panel }
       {mobileOpen && (
         <div className="md:hidden bg-white/5 backdrop-blur-sm p-4">
           <div className="max-w-6xl mx-auto">
@@ -57,7 +57,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </nav>
   );
 }
