@@ -22,6 +22,8 @@ export default function HomePage() {
     { id: 5, title: "ความปลอดภัยของเครือข่าย", description: "Firewall, ACL และการป้องกันภัยคุกคาม" },
     { id: 6, title: "VPN", description: "สร้างระบบเชื่อมต่อระยะไกลอย่างปลอดภัย" },
     { id: 7, title: "การจัดการเครือข่ายระดับองค์กร", description: "Monitoring & Troubleshooting จริงในองค์กร" },
+    { id: 8, title: "แบบฝึกหัด IP Address", description: "การจัดการ IP Address การแบ่งช่วง /การคำนวณ / AND" },
+    { id: 9, title: "ทำความรู้จักกับ การสื่อสารข้อมูล", description: "การสื่อสารข้อมูลในเครือข่ายคอมพิวเตอร์" },
   ];
 
   return (
@@ -86,6 +88,23 @@ export default function HomePage() {
               <p className="text-gray-600 text-sm">{item.description}</p>
             </a>
           ))}
+        </div>
+
+        {/* Mini Projects Section */}
+        <div className="mt-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">Mini Projects</h2>
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <a
+              href="https://clgrand.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card block p-6 rounded-2xl transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <h3 className="text-xl font-bold mb-2">การบวกเลขและคำนวณเกรด</h3>
+              <p className="text-gray-600 text-sm">โปรเจคสำหรับการคำนวณเลขและเกรดอย่างง่าย</p>
+            </a>
+            {/* Add more projects here */}
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import { use, useState, useEffect } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { use } from 'react';
+
 
 
 
@@ -20,8 +20,8 @@ const lessonNames: Record<string, string> = {
 };
 
 const pdfFiles: Record<string, string> = {
-  "1": "/PDF/การสื่อสารข้อมูล.pdf",
-  "2": "/PDF/IP Address.pdf",
+  "9": "/PDF/การสื่อสารข้อมูล.pdf",
+  "8": "/PDF/IP Address.pdf",
 };
 
 export default function LessonPage({ params }: LessonPageProps) {
@@ -29,15 +29,6 @@ export default function LessonPage({ params }: LessonPageProps) {
   const { id } = resolvedParams;
   const title = lessonNames[id] ?? "บทเรียนไม่พบ";
   const pdfPath = pdfFiles[id];
-  const [numPages, setNumPages] = useState<number | null>(null);
-
-  useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
-  }, []);
-
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
-  }
 
   if (!pdfPath) {
     return (
@@ -74,21 +65,16 @@ export default function LessonPage({ params }: LessonPageProps) {
         </div>
 
         <div className="border rounded p-4">
-          <Document
-            file={pdfPath}
-            onLoadSuccess={onDocumentLoadSuccess}
-            loading="กำลังโหลด PDF..."
-            error="ไม่สามารถโหลด PDF ได้"
+          <iframe
+            src={pdfPath}
+            width="100%"
+            height="600px"
+            style={{ border: 'none' }}
+            title={`PDF Viewer - ${title}`}
           >
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page
-                key={`page_${index + 1}`}
-                pageNumber={index + 1}
-                width={800}
-                className="mb-4 border"
-              />
-            ))}
-          </Document>
+            เบราว์เซอร์ของคุณไม่รองรับการแสดง PDF 
+            <a href={pdfPath} target="_blank" rel="noopener noreferrer">คลิกที่นี่เพื่อเปิด PDF</a>
+          </iframe>
         </div>
       </div>
     </div>
